@@ -1,14 +1,11 @@
 import './App.css';
-import Button from 'react-bootstrap/Button';
+import Header from '../Header/Header';
 
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-          Learn React 2
-          <Button> Click me! </Button>
-      </header>
+      <Header fixed="top"/>
     </div>
   );
 }
