@@ -3,17 +3,18 @@ import Header from '../Header/Header';
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-import Home from '../Pages/Home';
-import About from '../Pages/About';
-import Blog from '../Pages/Blog';
-import Contacts from '../Pages/Contacts';
+import About from '../../Pages/About';
+import Blog from '../../Pages/Blog';
+import Contacts from '../../Pages/Contacts';
+import Home from '../../Pages/Home';
+import Footer from '../Footer/Footer';
 
 function App() {
     return (
-        <div>
+        <div className="app-container">
             <Router>
-                <Header/>
-                <div className="pages">
+                <div className="app-content">
+                    <Header/>
                     <Switch>
                         <Route exact path="/" component={Home}/>
                         <Route path="/about" component={About}/>
@@ -21,7 +22,10 @@ function App() {
                         <Route path="/blog" component={Blog}/>
                     </Switch>
                 </div>
-            </Router>
+                <div className="app-footer">
+                    <Footer/>
+                </div>
+            </Router>                
         </div>
     );
 }
