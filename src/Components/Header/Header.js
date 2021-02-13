@@ -1,6 +1,13 @@
 import React, {Component} from 'react';
-import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap';
-import { Route, Router, Switch } from 'react-router';
+import {
+    Navbar,
+    Nav,
+    Form,
+    FormControl,
+    Button,
+    NavLink
+} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 import logo from './logo.svg';
 
 // {'sm' | 'md' | 'lg' | 'xl'}
@@ -8,7 +15,7 @@ import logo from './logo.svg';
 class Header extends Component {
     render() {
         return (
-            <div>
+            <div className="header_navbar">
                 <Navbar fixed="top" collapseOnSelect expand="md" bg="dark" variant="dark">
                     <img
                         alt=""
@@ -16,26 +23,21 @@ class Header extends Component {
                         width="30"
                         height="30"
                         className="d-inline-block align-top"/>{' '}
-                    <Navbar.Brand href="/">Мое первое приложение</Navbar.Brand>
-                    <Nav className="mr-auto">
-                        <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/about">About us</Nav.Link>
-                        <Nav.Link href="/contacts">Contact us</Nav.Link>
-                        <Nav.Link href="/blog">Blog</Nav.Link>
-                    </Nav>
-                    <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2"/>
-                        <Button variant="outline-info">Search</Button>
-                    </Form>
+                    <Navbar.Brand as={Link} to="/">FROST</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="mr-auto">
+                            <NavLink as={Link} to="/">Home</NavLink>
+                            <NavLink as={Link} to="/about">About us</NavLink>
+                            <NavLink as={Link} to="/contacts">Contact us</NavLink>
+                            <NavLink as={Link} to="/blog">Blog</NavLink>
+                        </Nav>
+                        <Form inline>
+                            <FormControl type="text" placeholder="Search" className="mr-sm-2"/>
+                            <Button variant="outline-info">Search</Button>
+                        </Form>
+                    </Navbar.Collapse>
                 </Navbar>
-                <Router>
-                    <Switch>
-                        <Route exaxt path="/" component={Home}/>
-                        <Route exaxt path="/about" component={About}/>
-                        <Route exaxt path="/contacts" component={Contacts}/>
-                        <Route exaxt path="/blog" component={Blog}/>
-                    </Switch>
-                </Router>
             </div>
         );
     }
